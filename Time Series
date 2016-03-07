@@ -1,0 +1,36 @@
+help("AirPassengers")
+data("AirPassengers")
+panam<- (AirPassengers)
+View(panam)
+class(panam)
+start(panam);end(panam); frequency(panam)
+panam
+ts() # funcion para declara una base de datos
+## como serie de tiempo
+x11()
+plot(panam,main="Número de pasajeros aereos en EU, 1949-1960", ylab="Pasajeros (miles)",xlab="Años",col="dark blue")
+help("plot")
+plot(aggregate (panam),col="dark red")
+layout(1:2)
+plot(panam)
+##ppp<- ts(base1,start=c(1998,1),freq=4) ###funcion para declarar una base de datos
+##----------EJERCICIO-------------------
+# Generar un data frame con la tasa de desocupacion que inicia en el primer trimestre del 2005
+# Tasa de desocupacion
+td<-c(3.4,4.8,3.3,5.6,3.2,2.9,1.9,2.8,6.0,4.3,2.2)
+#Convertirla en serie de tiempo y graficar la ST y la tendencia
+# Obtener un pdf con las dos graficas en una misma imagen
+#Github martes 8 de marzo antes de las 12
+df<- data.frame(td)
+ppp<- ts(df,start=c(2005,1),freq=4)
+class(ppp)
+start(ppp);end(ppp); frequency(ppp)
+ts()
+plot(ppp,main="Tasa de desocupación",col="dark blue")
+plot(aggregate (ppp),col="dark red")
+layout(1:2)
+x11()
+jpeg("Grafico.jpg")
+plot(ppp,main="Tasa de desocupación",col="dark blue")
+plot(aggregate (ppp),col="dark red")
+dev.off()
